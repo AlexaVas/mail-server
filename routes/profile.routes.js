@@ -1,0 +1,38 @@
+/** @format */
+
+const router = require("express").Router();
+const transporter = require("../config/mailer");
+
+
+router.post("/portfolio", (req, res, next) => {
+  const title = "<b>Hello World! <3</b>";
+  const message = "<b>Yoo-hoo</b> <p>Someone has viewed your portfolio!💪🎉</p>";
+
+  
+  async function sendMail() {
+    
+
+      try {
+        const info = await transporter.sendMail({
+          from: `"Portfolio Bot 🤖" <${process.env.EMAIL_ADDRESS}>`, // sender address
+          to: `alexandra.vasinova@gmail.com`, // list of receivers
+          subject: "Portfolio Viewed ✔", // Subject line
+          text: "Hello world?", // plain text body
+          html: message, // html body
+        });
+
+        console.log(`Message to ${contact.name} sent: `, info.messageId);
+      } catch (err) {
+        console.error(`Error sending your email to ${contact.name} : `, err);
+        res.status(500).json("Error sending your email... :(");
+      } 
+
+    }
+  
+
+  sendMail();
+
+  res.status(200).json("Sent :)");
+});
+
+module.exports = router;
