@@ -12,14 +12,17 @@ router.post("/send", (req,res,next)=> {
     
 
 
+let delay = 10000;
+let currentIndex = 0; 
 
-
-contacts.forEach(contact => {
-
-setTimeout((e)=>{
 
 async function sendMail() {
   // send mail with defined transport object
+
+  if (currentIndex < contacts.length) {
+
+    const contact = contacts[currentIndex];
+  
 
   try {
  const info = await transporter.sendMail({
@@ -32,27 +35,33 @@ async function sendMail() {
 
   console.log(`Message to ${contact.name} sent: `, info.messageId);
   
-
+  
 
   } catch (err){
 
     console.error(`Error sending your email to ${contact.name} : `, err);
-    res.status(500).json("Error sending your email... :(");
+    // res.status(500).json("Error sending your email... :(");
   
 } finally {
 
-    console.log(`message to ${contact.name} sent succesfully!`);
+    console.log(`Process Finalized: ${contact.name} `);
+    currentIndex++;
+    delay += 1000;
+    console.log(delay);
+    console.log(currentIndex);
+    setTimeout(sendMail,delay);
 }
 
-
+  }
 }
 
 sendMail();
 
+  
 
-},100000);
 
-});
+
+
 
 
 res.status(200).json("All messages are sending !!!");
