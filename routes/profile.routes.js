@@ -22,6 +22,7 @@ router.post("/portfolio", (req, res, next) => {
         });
 
         console.log(`Message sent: `, info.messageId);
+        res.status(200).json("Sent :)");
       } catch (err) {
         console.error(`Error sending your email: `, err);
         res.status(500).json("Error sending your email... :(");
@@ -32,7 +33,7 @@ router.post("/portfolio", (req, res, next) => {
 
   sendMail();
 
-  res.status(200).json("Sent :)");
+  
 });
 
 module.exports = router;
