@@ -22,6 +22,10 @@ router.post("/portfolio", (req, res, next) => {
         });
 
         console.log(`Message sent: `, info.messageId);
+        res.setHeader(
+          "Access-Control-Allow-Origin",
+          "https://alexavas.github.io"
+        );
         res.status(200).json("Sent :)");
       } catch (err) {
         console.error(`Error sending your email: `, err);
