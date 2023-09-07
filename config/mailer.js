@@ -20,7 +20,7 @@ let transporter;
 if (process.env.NODE_ENV === "production") {
   
   transporter = nodemailer.createTransport({
-    host: "smtp.office365.com", // Use the appropriate SMTP server
+    host: "smtp-mail.outlook.com", // Use the appropriate SMTP server
     port: 587, // Use the appropriate port for your SMTP server
     secure: true, // Set to true if using SSL/TLS
     auth: {
