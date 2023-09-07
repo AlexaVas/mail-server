@@ -21,9 +21,9 @@ router.post("/portfolio", (req, res, next) => {
           html: message, // html body
         });
 
-        console.log(`Message to ${contact.name} sent: `, info.messageId);
+        console.log(`Message sent: `, info.messageId);
       } catch (err) {
-        console.error(`Error sending your email to ${contact.name} : `, err);
+        console.error(`Error sending your email: `, err);
         res.status(500).json("Error sending your email... :(");
       } 
 
