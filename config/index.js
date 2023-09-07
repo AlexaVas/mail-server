@@ -24,9 +24,7 @@ module.exports = (app) => {
   // controls a very specific header to pass headers from the frontend
   app.use(
     cors({
-      origin: [
-    "https://alexavas.github.io/Portfolio/",
-    "https://alexa-vas.vercel.app/"],
+      origin: "https://alexavas.github.io/Portfolio",
     })
   );
 
