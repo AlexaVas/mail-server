@@ -24,12 +24,12 @@ module.exports = (app) => {
   // controls a very specific header to pass headers from the frontend
   app.use(
     cors({
-      origin: "https://3-d-portfolio-psi-seven.vercel.app/",
+      origin: "https://3-d-portfolio-psi-seven.vercel.app",
     })
   );
 
   // In development environment the app logs
-  app.use(logger("dev"));
+  https: app.use(logger("dev"));
 
   // To have access to `body` property in the request
   app.use(express.json());
