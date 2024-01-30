@@ -21,8 +21,12 @@ app.use("/", indexRoutes);
 const mailRoutes = require("./routes/mail.routes");
 app.use("/", mailRoutes);
 
-const profileRoutes = require("./routes/profile.routes");
-app.use("/", profileRoutes);
+// const profileRoutes = require("./routes/profile.routes");
+// app.use("/", profileRoutes);
+
+//3D portfolio routes
+const contactMeRoutes = require("./routes/contactMe.routes");
+app.use("/", contactMeRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
